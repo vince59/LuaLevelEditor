@@ -4,6 +4,7 @@ require("sprite")
 
 function love.load()
     Assets:load()
+    Sprite:load("Outdoor",2,4)
 end
 
 function love.update(dt)
@@ -11,5 +12,5 @@ function love.update(dt)
 end
 
 function love.draw()
-    Sprite:drawAllTiles("Outdoor")
+    Sprite:drawAllTiles()
 end
