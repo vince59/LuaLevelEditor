@@ -2,6 +2,7 @@ Sprite = {}
 
 function Sprite:load(tilesName, width, height)
     self.Tiles = Assets[tilesName]
+    self.tilesName=tilesName
     self.spriteNum = 1
     self.slices = {}
     self.tileNumber = 0
@@ -12,10 +13,11 @@ end
 
 function Sprite:printJson()
     local jsonStr = '{ "width":' .. self.width .. ','
-    jsonStr = jsonStr .. '"height":' .. self.height .. ''
+    jsonStr = jsonStr .. '"height":' .. self.height .. ','
+    jsonStr = jsonStr .. '"tilesName":"' .. self.tilesName .. '",'
     jsonStr = jsonStr .. '"animation":['
     for slice = 1, self.sliceNumber do
-        jsonStr = jsonStr .. '{"slices":['
+        jsonStr = jsonStr .. '{"tiles":['
         for sprite = 1, #self.slices[slice] do
             jsonStr = jsonStr .. self.slices[slice][sprite] .. ","
         end
